@@ -612,6 +612,164 @@ body {
   }
 }
 
+/* Timeline Section */
+.timeline-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #FDF0D5;
+  border-radius: 10px;
+}
+
+.timeline-section h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #003049;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.timeline-intro {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.timeline-placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.timeline-marker {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: #C1121F;
+  border: 3px solid #FDF0D5;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #C1121F;
+  margin-top: 0.3rem;
+}
+
+.timeline-content h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #003049;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #C1121F;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .timeline-section {
+    padding: 3rem;
+  }
+
+  .timeline-section h3 {
+    font-size: 2.2rem;
+  }
+
+  .timeline-intro {
+    font-size: 1.1rem;
+  }
+
+  .timeline-placeholder {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    padding-top: 3rem;
+    position: relative;
+  }
+
+  /* Horizontal line connecting timeline items */
+  .timeline-placeholder::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0.6rem;
+    height: 3px;
+    background-color: #C1121F;
+    z-index: 0;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-marker {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0;
+  }
+
+  .timeline-content {
+    margin-top: 1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-date {
+    font-size: 0.95rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .timeline-content h4 {
+    font-size: 1.2rem;
+  }
+
+  .timeline-date {
+    font-size: 1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.95rem;
+  }
+}
+
 /* Footer Styles */
 .footer {
   background-color: #003049;

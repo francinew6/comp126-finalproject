@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #C1121F;
+  padding: 1rem;
+  position: relative;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  opacity: 0.85;
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.site-title {
+  color: white;
+  font-size: 1.2rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  display: none; 
+}
+
+/* Show title on larger screens */
+@media screen and (min-width: 480px) {
+  .site-title {
+    display: block;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .site-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Hamburger Menu Button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #C1121F;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.nav-menu.active {
+  max-height: 300px;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.nav-menu li {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  transition: background-color 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+  background-color: #780000;
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: -2px;
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-menu {
+    position: static;
+    max-height: none;
+    width: auto;
+    background-color: transparent;
+  }
+
+  .nav-menu ul {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .nav-menu li {
+    border: none;
+  }
+
+  .nav-menu a {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Header Section */
+.header {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url('../images/landscape.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.header-content {
+  background-color: rgba(56, 78, 112, 0.75);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: left;
+  max-width: 90%;
+}
+
+.header-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.header-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: white;
+}
+
+/* Responsive Header */
+@media screen and (min-width: 768px) {
+  .header {
+    height: 600px;
+    justify-content: flex-end;
+  }
+
+  .header-content {
+    max-width: 500px;
+  }
+
+  .header-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Program Introduction Section */
+.program-intro {
+  background-color: #FDF0D5;
+  padding: 3rem 2rem;
+}
+
+.intro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.program-intro h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003049;
+  margin-bottom: 1.5rem;
+}
+
+.program-intro p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+}
+
+@media screen and (min-width: 768px) {
+  .program-intro {
+    padding: 4rem 2rem;
+  }
+
+  .program-intro h2 {
+    font-size: 2rem;
+  }
+
+  .program-intro p {
+    font-size: 1rem;
+  }
+}
+
+/* Destinations Section */
+.destinations {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+}
+
+.destinations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.destinations h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #C1121F;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.destinations-intro {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+
+.destination-card {
+  background-color: #FDF0D5;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #003049;
+  margin-bottom: 1rem;
+}
+
+.destination-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.destination-card h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #C1121F;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.destination-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.destination-card li {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.destination-card li::before {
+  content: "✈";
+  color: #C1121F;
+  font-size: 1rem;
+  position: absolute;
+  left: 0;
+}
+
+.destination-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.image-placeholder {
+  background-color: #E5E5E5;
+  border: 2px dashed #999;
+  border-radius: 8px;
+  padding: 3rem 1rem;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.destination-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.destinations-note {
+  background-color: #384E70;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.destinations-note p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.destinations-note strong {
+  font-weight: 600;
+}
+
+/* Desktop responsive for destinations */
+@media screen and (min-width: 768px) {
+  .destinations {
+    padding: 4rem 2rem;
+  }
+
+  .destinations h2 {
+    font-size: 2.5rem;
+  }
+
+  .destinations-intro {
+    font-size: 1.2rem;
+  }
+
+  .destination-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+
+  .destination-content {
+    order: 1;
+  }
+
+  .destination-images {
+    order: 2;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Alternate layout for even cards */
+  .destination-card:nth-child(even) .destination-content {
+    order: 2;
+  }
+
+  .destination-card:nth-child(even) .destination-images {
+    order: 1;
+  }
+
+  .destination-card h3 {
+    font-size: 2rem;
+  }
+
+  .destination-description {
+    font-size: 1.1rem;
+  }
+
+  .destination-card h4 {
+    font-size: 1.4rem;
+  }
+
+  .destination-card li {
+    font-size: 1rem;
+  }
+
+  .destinations-note p {
+    font-size: 1rem;
+  }
+}
+
+/* Program Logistics Section */
+.program-logistics {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+}
+
+.logistics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logistics-info {
+  margin-bottom: 2rem;
+}
+
+.logistics-info h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #C1121F;
+  margin-bottom: 0.5rem;
+}
+
+.logistics-info p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.logistics-section {
+  margin-bottom: 2.5rem;
+}
+
+.logistics-section h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #003049;
+  margin-bottom: 1rem;
+}
+
+.logistics-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.logistics-section li {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.logistics-section li::before {
+  content: "•";
+  color: #C1121F;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+}
+
+.logistics-section li strong {
+  color: #003049;
+  font-weight: 600;
+}
+
+.important-note {
+  background-color: #FDF0D5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #C1121F;
+  margin-top: 2rem;
+}
+
+.important-note p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.important-note p:last-child {
+  margin-bottom: 0;
+}
+
+.important-note strong {
+  color: #C1121F;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .program-logistics {
+    padding: 4rem 2rem;
+  }
+
+  .logistics-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .logistics-info p {
+    font-size: 1.2rem;
+  }
+
+  .logistics-section h3 {
+    font-size: 1.8rem;
+  }
+
+  .logistics-section li {
+    font-size: 1.1rem;
+  }
+
+  .important-note p {
+    font-size: 1rem;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #003049;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+}

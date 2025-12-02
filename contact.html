@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China-US Culture Exchange Program - Contact</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="China-US Exchange Program Logo" class="logo">
+                    <span class="site-title">China-US Culture Exchange Program</span>
+                </a>
+            </div>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <ul>
+                    <li><a href="details.html">Details</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Reuse Apply styles for layout/card -->
+        <section class="apply-section" id="contact">
+            <div class="apply-container">
+                <h1 class="apply-title">Contact</h1>
+
+                <form id="contact-form" class="apply-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="question">Questions or Inquiries?</label>
+                        <textarea id="question" name="question" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="apply-button">Submit</button>
+                    <p id="form-status" class="form-status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; China-US Culture Exchange Program 2026</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <!-- Contact form submission script (Google Apps Script integration) -->
+    <script>
+      const contactForm = document.getElementById("contact-form");
+      const contactStatus = document.getElementById("form-status");
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        contactStatus.innerText = "Sending your message...";
+
+        const data = new FormData(contactForm);
+
+        const action = "https://script.google.com/macros/s/AKfycbxGX3AR0CoQd_4PJPW3CLZ-KY_2Vy2Vfftkk4jxVvRRv4W7c-bq_N4vXnICsTosFRncnA/exec";
+
+        fetch(action, {
+          method: "POST",
+          body: data,
+          mode: "no-cors",
+        })
+          .then(() => {
+            contactStatus.innerText = "Message sent successfully!";
+            contactForm.reset();
+          })
+          .catch((error) => {
+            contactStatus.innerText = "Oops! There was a problem.";
+            console.error("Error:", error);
+          });
+      });
+    </script>
+</body>
+</html>

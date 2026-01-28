@@ -38,39 +38,13 @@
 
     <!-- Main Content -->
     <main id="main-content">
-        <section class="apply-section" id="apply">
-            <div class="apply-container">
-                <h1 class="apply-title">Apply</h1>
+        <section class="program-intro" id="apply">
+            <div class="intro-container">
+                <h2>Apply</h2>
 
-                <form id="apply-form" class="apply-form">
-                    <div class="form-group">
-                        <label for="name">Legal Name as Listed on Passport</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dob">Date of Birth</label>
-                        <input type="date" id="dob" name="dob" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="race">Race or Ethnicity</label>
-                        <input type="text" id="race" name="race" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <input type="text" id="gender" name="gender" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <button type="submit" class="apply-button">Submit</button>
-                    <p id="form-status" class="form-status" aria-live="polite"></p>
-                </form>
+                <div class="form-embed">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfOuqMQLrihpRFU8xz1aNL5bWGlKNyJg6ShUwwgvYy3YD4cjQ/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" title="China-US Culture Exchange Program Application Form">Loading…</iframe>
+                </div>
             </div>
         </section>
     </main>
@@ -81,35 +55,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-
-    <!-- Form submission script (Google Apps Script integration) -->
-    <script>
-      const form = document.getElementById("apply-form");
-      const status = document.getElementById("form-status");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        status.innerText = "Submitting your application...";
-
-        const data = new FormData(form);
-
-        const action = "https://script.google.com/macros/s/AKfycbzxy0_BPiHSsbQO_w0OzgfEj9tN3mpaWE0uAK3kQEvtKprVVsuyQw5hyAEBPIjdNs9S/exec";
-
-        fetch(action, {
-          method: "POST",
-          body: data,
-          mode: "cors",
-        })
-          .then(() => {
-            status.innerText = "Application submitted successfully!";
-            form.reset();
-          })
-          .catch((error) => {
-            status.innerText = "Oops! There was a problem.";
-            console.error("Error:", error);
-          });
-      });
-    </script>
 </body>
 </html>
